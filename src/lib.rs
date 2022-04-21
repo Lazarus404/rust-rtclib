@@ -2,9 +2,9 @@
 extern crate enum_primitive;
 extern crate num;
 
-mod stun_attr_value;
-mod stun_attribute;
-mod stun_const;
-mod stun_error;
-mod stun_header;
-mod stun_message;
+pub mod stun_attribute;
+pub mod stun_const;
+pub mod stun_error;
+pub mod stun_header;
+pub mod stun_message;
+pub mod stun_type;

@@ -1,6 +1,6 @@
 use std::net::IpAddr;
 
-#[derive(PartialEq, Debug)]
+#[derive(Clone, Debug, PartialEq)]
 pub enum StunAttrValue {
     Value(Vec<u8>),
     Attr(IpAddr, u16),
@@ -11,14 +11,14 @@ pub enum StunAttrValue {
 
 enum_from_primitive! {
     #[derive(Debug, PartialEq)]
-    pub enum StunChangeRequestType {
+    pub enum StunChangeRequest {
         Ip = 1,
         Port = 2,
     }
 }
 
 enum_from_primitive! {
-    #[derive(Debug, PartialEq)]
+    #[derive(Copy, Clone, Debug, PartialEq)]
     pub enum StunAttrType {
         MappedAddress = 1,
         ResponseAddress = 2,
@@ -68,5 +68,31 @@ enum_from_primitive! {
         XVovidaSecondaryAddress = 32848,
         ConnectionRequestBinding = 49153,
         BindingChange = 49154,
+    }
+}
+
+enum_from_primitive! {
+    #[derive(Copy, Clone, Debug, PartialEq)]
+    pub enum StunClass {
+        Request = 0,
+        Indication = 1,
+        Success = 2,
+        Error = 3,
+    }
+}
+
+enum_from_primitive! {
+    #[derive(Copy, Clone, Debug, PartialEq)]
+    pub enum StunMethod {
+        Binding = 1,
+        Allocate = 3,
+        Refresh = 4,
+        SendIndication = 6,
+        DataIndication = 7,
+        CreatePerm = 8,
+        ChannelBind = 9,
+        Connect = 10,
+        ConnectionBind = 11,
+        ConnectionAttempt = 12,
     }
 }

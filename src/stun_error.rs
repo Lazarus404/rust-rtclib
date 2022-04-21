@@ -1,4 +1,7 @@
+#[derive(PartialEq, Debug)]
 pub enum StunError {
-    Incomplete(String),
+    Incomplete(u16),
     Invalid,
+    BadIntegrity,
+    BadFingerprint,
 }
